@@ -18,7 +18,7 @@ const ListPaymentRequest = () => {
   });
 
   const history = useHistory();
-  const navigateTo = React.useCallback(() => history.push("/unitkerja-detailpayment"), [history]);
+  const navigateTo = React.useCallback((id) => history.push(`/unitkerja-detailpayment/${id}`), [history]);
   // table
   const columns = React.useMemo(
     () => [
@@ -69,15 +69,21 @@ const ListPaymentRequest = () => {
         ),
       },
       {
-        // title: 'Button',
-        key: "buttonDetail",
-        render: (text) => (
-          <Space size="middle">
-            <Button type="primary" onClick={navigateTo}>
-              Detail
-            </Button>
-          </Space>
-        ),
+        title: "Button",
+        render: (data) => {
+          return (
+            <Space size="middle">
+              <Button
+                type="primary"
+                onClick={() => {
+                  navigateTo(data.id);
+                }}
+              >
+                Detail
+              </Button>
+            </Space>
+          );
+        },
       },
     ],
     [navigateTo]

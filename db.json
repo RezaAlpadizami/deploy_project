@@ -25,30 +25,30 @@
   ],
   "paymentRequest": [
     {
-      "diminta_oleh": "Asep Sunandar",
-      "keperluan": "SPP Juli 2020",
-      "tgl_pembayaran": "2021-09-20 19:27",
-      "jumlah_payment": "Rp. 1.000.000",
-      "terbilang": "Satu Juta Rupiah",
-      "nama_rek_penerima": "MD, Mubarokul Huda",
-      "no_rek_penerima": "15000757050",
-      "tgl_request": "Wed Sep 15 2021 19:27:22 GMT+0700 (Western Indonesia Time)",
-      "status_request": "Menunggu Konfirmasi General Support",
-      "action": ["menunggu konfirmasi"],
-      "id": "EpcUXbU"
+      "diminta_oleh": "Bambang",
+      "keperluan": "Pembayaran Kartu Kredit",
+      "jumlah_payment": "300000",
+      "terbilang": "Tiga ratus ribu rupiah",
+      "nama_rek_penerima": "Anto",
+      "no_rek_penerima": "0088994553",
+      "tgl_request": "Sat Sep 18 2021 02:52:30 GMT+0700 (Western Indonesia Time)",
+      "tgl_pembayaran": "2021-06-02 04:53",
+      "status_request": "",
+      "action": ["disetujui"],
+      "id": "PetvzfI"
     },
     {
-      "diminta_oleh": "Asep Sunandar",
-      "keperluan": "SPP Juli 2020",
-      "tgl_pembayaran": "2021-09-20 19:27",
-      "jumlah_payment": "Rp. 1.000.000",
-      "terbilang": "Satu Juta Rupiah",
-      "nama_rek_penerima": "MD, Mubarokul Huda",
-      "no_rek_penerima": "15000757050",
-      "tgl_request": "Wed Sep 15 2021 19:27:22 GMT+0700 (Western Indonesia Time)",
-      "status_request": "Menunggu Konfirmasi General Support",
+      "diminta_oleh": "Kabayan",
+      "keperluan": "Pembayaran Token Listrik",
+      "jumlah_payment": "500",
+      "terbilang": "Lima ratus rupiah",
+      "nama_rek_penerima": "Ati Ampela",
+      "no_rek_penerima": "1122336765858",
+      "tgl_request": "Sat Sep 18 2021 02:55:12 GMT+0700 (Western Indonesia Time)",
+      "tgl_pembayaran": "2021-09-01 04:56",
+      "status_request": "",
       "action": ["menunggu konfirmasi"],
-      "id": "W-dGCKx"
+      "id": "_XI2BRx"
     }
   ]
 }

@@ -21,6 +21,34 @@ const Model = {
   status: "",
 };
 
+const ListPaymentValue = [
+  {
+    key: "spp",
+    value: "Pembayaran SPP",
+    label: "Pembayaran SPP",
+    isDisable: false,
+  },
+
+  {
+    key: "kartukredit",
+    value: "Pembayaran Kartu Kredit",
+    label: "Pembayaran Kartu Kredit",
+    isDisable: false,
+  },
+  {
+    key: "tokenlistrik",
+    value: "Pembayaran Token Listrik",
+    label: "Pembayaran Token Listrik",
+    isDisable: false,
+  },
+  {
+    key: "kpr",
+    value: "Pembayaran KPR",
+    label: "Pembayaran KPR",
+    isDisable: false,
+  },
+];
+
 const FormPayment = () => {
   const history = useHistory();
   const mutation = useMutation(
@@ -44,14 +72,6 @@ const FormPayment = () => {
   const [formState, setFormState] = useState({
     Model,
   });
-
-  function onChange(value) {
-    console.log(`selected ${value}`);
-  }
-
-  function onFocus() {
-    console.log("focus");
-  }
 
   const handleSubmitForm = React.useCallback(() => {
     mutation.mutate({
@@ -105,7 +125,6 @@ const FormPayment = () => {
                   value={formState.Model.diminta_oleh}
                   onChange={(e) => {
                     setFormState({
-                      ...formState,
                       Model: {
                         ...formState.Model,
                         diminta_oleh: e.target.value,
@@ -122,11 +141,26 @@ const FormPayment = () => {
                 <Text> : </Text>
               </Col>
               <Col span={6}>
-                <Select onChange={onChange} onFocus={onFocus}>
-                  <Option value="pembayaranSPP">Pembayaran SPP</Option>
-                  <Option value="pembayaranKartuKredit">Pembayaran Kartu Kredit</Option>
-                  <Option value="pembayarantokenlistrik">Pembayaran token listrik</Option>
-                  <Option value="pembayaranKPR">Pembayaran KPR</Option>
+                <Select
+                  value={formState.Model.keperluan}
+                  onSelect={(value) => {
+                    setFormState({
+                      Model: {
+                        ...formState.Model,
+                        keperluan: value,
+                      },
+                    });
+                  }}
+                >
+                  {ListPaymentValue.map((option) =>
+                    option.key === " " ? (
+                      <Option key={option.key} value={option.value} disabled={option.isDisable}></Option>
+                    ) : (
+                      <Option key={option.key} value={option.value} disabled={option.isDisable}>
+                        {option.label}
+                      </Option>
+                    )
+                  )}
                 </Select>
               </Col>
             </Row>
@@ -135,7 +169,7 @@ const FormPayment = () => {
           <Form.Item
             labelAlign="left"
             labelCol={{ span: 8 }}
-            label="Tanggal Pembayaran Aktual"
+            label="Tanggal Pembayaran"
             name="tanggal_pembayaran_aktual"
             rules={[
               {
@@ -166,7 +200,6 @@ const FormPayment = () => {
                   value={formState.Model.jumlah_payment}
                   onChange={(e) => {
                     setFormState({
-                      ...formState,
                       Model: {
                         ...formState.Model,
                         jumlah_payment: e.target.value,
