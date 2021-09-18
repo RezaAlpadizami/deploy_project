@@ -1,25 +1,18 @@
 import { Button, Row, Space, Table, Tag, Typography, Alert, Col } from "antd";
 import React from "react";
 import moment from "moment";
-import { useQuery } from "react-query";
 import { useHistory } from "react-router-dom";
 import "./ListPaymentRequest.css";
+import useGetPaymentRequest from "../Query/getGetPaymentRequest";
 
 const { Text } = Typography;
 
 const ListPaymentRequest = () => {
-  // Queries
-  const { isLoading, isError, data, refetch } = useQuery("todos", async () => {
-    const response = await fetch("http://localhost:5000/paymentRequest");
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  });
-
   const history = useHistory();
+  const {isLoading, isError, data, refetch} = useGetPaymentRequest();
+  console.log("data >>", isLoading, data) 
   const navigateTo = React.useCallback((id) => history.push(`/unitkerja-detailpayment/${id}`), [history]);
-  // table
+
   const columns = React.useMemo(
     () => [
       {
