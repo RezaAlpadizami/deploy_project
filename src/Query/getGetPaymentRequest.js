@@ -13,7 +13,7 @@ const useGetPaymentRequest = (id = "") => {
     }
   );
 
-  return {data, isLoading, isError}
+  return {data, isLoading, isError, refetch}
 };
 
 export default useGetPaymentRequest;
