@@ -101,7 +101,7 @@ const DetailPaymentRequest = () => {
               <Text>:</Text>
             </Col>
             <Col span={12}>
-              <Text>{data.jumlah_payment}</Text>
+              <Text>Rp. {data.jumlah_payment}</Text>
             </Col>
           </Row>
 

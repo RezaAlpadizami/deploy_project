@@ -31,7 +31,7 @@ const ListPaymentRequest = () => {
         dataIndex: "tgl_request",
         key: "tgl_request",
         render: (value) => {
-          const formateDate = moment(new Date(value)).format("DD MMMM YYYY HH:mm");
+          const formateDate = moment(new Date(value)).format("DD MMMM YYYY");
           return <Text>{formateDate} WIB</Text>;
         },
       },
