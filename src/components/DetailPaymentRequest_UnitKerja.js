@@ -1,23 +1,15 @@
 import { Button, Col, Form, Row, Typography, Spin, Alert } from "antd";
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./DetailPaymentRequest.css";
-import { useQuery } from "react-query";
 import moment from "moment";
+import useGetDetailPaymentRequest from "../Query/useGetDetailPaymentRequest";
 
 const { Text, Title } = Typography;
 
 const DetailPaymentRequest = () => {
-  const params = useParams();
-  console.log("params >> ", params);
-  const { isLoading, isError, data, refetch } = useQuery(`detailPaymentRequest:${params.id}`, async () => {
-    const response = await fetch("http://localhost:5000/paymentRequest/" + params.id);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  });
-
+  const {isLoading, isError, data, refetch} = useGetDetailPaymentRequest();
+  
   const history = useHistory();
   const navigateTo = React.useCallback(() => history.push("/unitkerja-beranda"), [history]);
 

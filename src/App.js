@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { AccountigDetailPaymentPage, AccountingBerandaPage } from "./pages/Accounting";
 import { ADCreateRolePage, ADManagementRolePage, ADUpdateRolePage } from "./pages/Admin";
-import { GSLoginPage, GSPaymentRequestPage } from "./pages/GeneralSupport";
+import { GSPaymentRequestPage } from "./pages/GeneralSupport";
 import { UKBerandaPage, UKDetailPaymentPage, UKLoginPage, UKPaymentRequestPage } from "./pages/UnitKerja";
 import AuthorizedRoute from "./AuthorizedRoute";
 import RestrictedWrapper from "./RestrictedWrapper";
@@ -35,7 +35,6 @@ function App() {
                   <LoginContainer />
                 </RestrictedWrapper>
               </Route>
-              <Route path="/officer-login" component={GSLoginPage} />
               <Route component={DefaultContainer} />
             </Switch>
           </Router>
@@ -54,12 +53,12 @@ const DefaultContainer = () => (
     <AuthorizedRoute path="/unitkerja-beranda" exact component={UKBerandaPage}></AuthorizedRoute>
     <AuthorizedRoute path="/unitkerja-paymentrequest" exact component={UKPaymentRequestPage}></AuthorizedRoute>
     <AuthorizedRoute path="/unitkerja-detailpayment/:id" exact component={UKDetailPaymentPage}></AuthorizedRoute>
-    <Route path="/gs-paymentrequest" component={GSPaymentRequestPage} />
-    <Route path="/accounting-request" component={AccountigDetailPaymentPage} />
-    <Route path="/accounting-beranda" component={AccountingBerandaPage} />
-    <Route path="/role-account-update" component={ADUpdateRolePage} />
-    <Route path="/role-account-add" component={ADCreateRolePage} />
-    <Route path="/admin-beranda" component={ADManagementRolePage} />
+    <AuthorizedRoute path="/gs-paymentrequest" component={GSPaymentRequestPage}></AuthorizedRoute>
+    <AuthorizedRoute path="/accounting-request" component={AccountigDetailPaymentPage}></AuthorizedRoute>
+    <AuthorizedRoute path="/accounting-beranda" component={AccountingBerandaPage}></AuthorizedRoute>
+    <AuthorizedRoute path="/role-account-update" component={ADUpdateRolePage}></AuthorizedRoute>
+    <AuthorizedRoute path="/role-account-add" component={ADCreateRolePage}></AuthorizedRoute>
+    <AuthorizedRoute path="/admin-beranda" component={ADManagementRolePage}></AuthorizedRoute>
     <Footer />
   </>
 );

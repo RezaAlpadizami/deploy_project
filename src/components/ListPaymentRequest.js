@@ -3,7 +3,7 @@ import React from "react";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
 import "./ListPaymentRequest.css";
-import useGetPaymentRequest from "../Query/getGetPaymentRequest";
+import useGetPaymentRequest from "../Query/useGetPaymentRequest";
 
 const { Text } = Typography;
 

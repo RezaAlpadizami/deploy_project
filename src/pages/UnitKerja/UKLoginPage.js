@@ -1,18 +1,19 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Button, Col, Form, Input, Result, Row, Typography } from "antd";
-import img from "../../assets/image_logo2.png";
 import { Layout } from "antd";
-import "antd/dist/antd.css";
-import "../../components/LoginPage.css";
-import { useAuthorizedContext } from "../../AuthorizedContext";
+
+import img from "../../assets/image_logo2.png";
 import useLogin from "../../Mutations/useLogin";
+import "antd/dist/antd.css";
+import { useAuthorizedContext } from "../../AuthorizedContext";
+import "../../components/LoginPage.css";
 
 const Text = Typography;
 
 const LoginForm = () => {
   const history = useHistory();
-  const { isLoggedIn, userLevel, setAuthorizedValue } = useAuthorizedContext();
+  const { setAuthorizedValue } = useAuthorizedContext();
 
   const handleSignInButton = React.useCallback(() => {
     setAuthorizedValue(true);
