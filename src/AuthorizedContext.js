@@ -2,7 +2,6 @@ import React from "react";
 
 const AuthorizedDefaultValue = {
   isLoggedIn: false,
-  userLevel: "",
   setAuthorizedValue: () => {},
 };
 
@@ -10,19 +9,17 @@ const AuthorizedContext = React.createContext(AuthorizedDefaultValue);
 
 const AuthorizedContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [userLevel, setUserLevel] = React.useState("");
 
   const setAuthorizedValue = React.useCallback(
-    (loginStatus, userLevelStatus) => {
+    (loginStatus) => {
       setIsLoggedIn(loginStatus);
-      setUserLevel(userLevelStatus);
     },
-    [setIsLoggedIn, setUserLevel]
+    [setIsLoggedIn]
   );
 
   return (
     <AuthorizedContext.Provider
-      value={{ isLoggedIn, userLevel, setAuthorizedValue }}
+      value={{ isLoggedIn, setAuthorizedValue }}
     >
       {props.children}
     </AuthorizedContext.Provider>
@@ -30,10 +27,10 @@ const AuthorizedContextProvider = (props) => {
 };
 
 const useAuthorizedContext = () => {
-  const { isLoggedIn, userLevel, setAuthorizedValue } =
+  const { isLoggedIn, setAuthorizedValue } =
     React.useContext(AuthorizedContext);
 
-  return { isLoggedIn, userLevel, setAuthorizedValue };
+  return { isLoggedIn, setAuthorizedValue };
 };
 
 export { AuthorizedContextProvider, useAuthorizedContext };
