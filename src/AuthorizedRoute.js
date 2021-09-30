@@ -1,19 +1,29 @@
-import React from 'react';
+import React from "react";
 import { Route, useHistory } from "react-router-dom";
 import { useAuthorizedContext } from "./AuthorizedContext";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
 
-const AuthorizedRoute = (routeProps) => {
-    const { isLoggedIn } =useAuthorizedContext();
-    const history = useHistory();
+const AuthorizedRoute = (props) => {
+  const { isLoggedIn, setAuthorizedValue } = useAuthorizedContext();
+  const history = useHistory();
 
-    React.useEffect(() => {
-        if (!isLoggedIn) {
-            history.push("/unitkerja-login");
-        }
-    }, [isLoggedIn, history]);
+  const accessToken = cookies.get("accessToken");
 
-    return <Route {...routeProps} />;
+  React.useEffect(() => {
+    if (!accessToken) {
+      setAuthorizedValue(false);
+    }
+  }, [accessToken, isLoggedIn]);
+
+  React.useEffect(() => {
+    if (!isLoggedIn) {
+      history.push("/unitkerja-login");
+    }
+  }, [isLoggedIn, history]);
+
+  return <Route {...props} />;
 };
 
 export default AuthorizedRoute;

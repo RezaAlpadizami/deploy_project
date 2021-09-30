@@ -103,8 +103,8 @@ const LoginForm = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                onClick={handleSignInButton}
-                // onClick={login}
+                // onClick={handleSignInButton}
+                onClick={login}
                 style={{
                   backgroundColor: "#09539C ",
                   justifyContent: "center",
