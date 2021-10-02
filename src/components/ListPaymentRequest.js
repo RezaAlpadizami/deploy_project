@@ -2,6 +2,7 @@ import { Button, Row, Space, Table, Tag, Typography, Alert, Col } from "antd";
 import React from "react";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
+import { QueryClient } from "react-query";
 import "./ListPaymentRequest.css";
 import useGetPaymentRequest from "../Query/useGetPaymentRequest";
 
@@ -100,7 +101,6 @@ const ListPaymentRequest = () => {
       }}
     >
       <Space direction="vertical">
-        <h1>List Payment Request - KC Bank XXX</h1>
         {isError && (
           <Alert
             message="Gagal memuat data"
