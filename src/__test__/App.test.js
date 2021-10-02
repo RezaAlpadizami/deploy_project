@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from "enzyme";
+import { shallow, mount } from "../setupTest";
 import App from "../App"
 
 it("test renders App component", () => {
