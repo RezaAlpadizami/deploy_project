@@ -12,7 +12,7 @@ on:
 jobs:
   run-linters:
     name: run-linters
-    runs-on: ${{ matrix.os}}
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
