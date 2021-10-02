@@ -5,6 +5,6 @@ import { UKLoginPage } from "../pages/UnitKerja";
 
 configure({ adapter: new Adapter() });
 
-it("render without crash", () => {
+it("render UKLoginPage without crash", () => {
   shallow(<UKLoginPage />);
 });

@@ -10,7 +10,7 @@ it("render without crash", () => {
   shallow(<AccountingBerandaPage />);
 });
 
-it("Cek title text in AccountingBeranda Component", () => {
+it("Cek title text in Accounting Beranda Component", () => {
   const components = shallow(<AccountingBerandaPage />);
   const title = <Title>List Payment Request</Title>;
 

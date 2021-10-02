@@ -8,14 +8,14 @@ import ListPaymentRequest from "../components/ListPaymentRequest";
 
 configure({ adapter: new Adapter() });
 
-describe('UKBerandaPage', () => {
+describe("UKBerandaPage", () => {
   it("render UKBerandaPage without crash", () => {
     shallow(<UKBerandaPage />);
   });
-  
+
   it("Cek headers text in ListPaymentRequest Component", () => {
     const components = shallow(<UKBerandaPage />);
-    const headerText = <h1>List Payment Request - KC Bank XXX</h1>
+    const headerText = <h1>List Payment Request - KC Bank XXX</h1>;
     expect(components.contains(headerText)).toEqual(true);
   });
 
@@ -23,17 +23,17 @@ describe('UKBerandaPage', () => {
   //   const components = mount(<UKBerandaPage />)
   //   expect(components.state("error")).toEqual(null)
   // })
+});
 
-})
-
-describe('ListPaymentRequest', () => {
+describe("ListPaymentRequest", () => {
   const queryClient = new QueryClient();
-  
+
   it("render ListPaymentRequest without crash", () => {
     shallow(
       <QueryClientProvider client={queryClient}>
         <ListPaymentRequest />
-      </QueryClientProvider>)
+      </QueryClientProvider>
+    );
   });
 
   // it('simulates click events', () => {
@@ -42,4 +42,4 @@ describe('ListPaymentRequest', () => {
   //   wrapper.find('button').simulate('click');
   //   expect(onButtonClick).to.have.property('id', data.id);
   // });
-}) 
+});
