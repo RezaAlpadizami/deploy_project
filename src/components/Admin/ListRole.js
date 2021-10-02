@@ -1,4 +1,4 @@
-import { Button, Row, Space, Table } from "antd";
+import { Button, Row, Space, Table, Col } from "antd";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../../components/LoginPage.css";
@@ -57,7 +57,7 @@ const ListRole = () => {
         key: "buttonDetail",
         render: (text) => (
           <Space size="small">
-            <Link >Lihat</Link>
+            <Link>Lihat</Link>
           </Space>
         ),
       },
@@ -66,7 +66,7 @@ const ListRole = () => {
         key: "buttonDetail",
         render: (text) => (
           <Space size="small">
-            <Link to="/role-account-update" >Ubah</Link>
+            <Link to="/role-account-update">Ubah</Link>
           </Space>
         ),
       },
@@ -95,26 +95,23 @@ const ListRole = () => {
       }}
     >
       <h1>Role & Account</h1>
-      <Button
-        style={{
-          width: 720,
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-          marginBottom: 15,
-          borderRadius: 10,
-          backgroundColor: "orange",
-        }}
-        onClick={navigateTo}
-      >
-        Add New Role & Account
-      </Button>
-      <Table
-        rowClassName={(_, index) =>
-          index % 2 === 0 ? "table-row-light" : "table-row-dark"
-        }
-        columns={columns}
-        dataSource={data}
-      />
+      <Col span={8} offset={8}>
+        <Button
+          style={{
+            width: 720,
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            marginBottom: 15,
+            marginRight: 125,
+            borderRadius: 10,
+            backgroundColor: "orange",
+          }}
+          onClick={navigateTo}
+        >
+          Add New Role & Account
+        </Button>
+      </Col>
+      <Table rowClassName={(_, index) => (index % 2 === 0 ? "table-row-light" : "table-row-dark")} columns={columns} dataSource={data} />
     </Row>
   );
 };

@@ -16,6 +16,7 @@ function UKPaymentRequestPage() {
           >
             Silahkan Isi Form Payment Request
           </h3>
+
           <FormPayment />
         </Content>
       </Layout>

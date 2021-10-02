@@ -1,11 +1,17 @@
-import Enzyme from 'enzyme';
+import Enzyme from "enzyme";
 
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from "enzyme-adapter-react-16";
 
 Enzyme.configure({ adapter: new Adapter() });
-
+window.matchMedia =
+  window.matchMedia ||
+  function () {
+    return {
+      matches: false,
+      addListener: function () {},
+      removeListener: function () {},
+    };
+  };
 module.exports = {
-
-setupTestFrameworkScriptFile: "./enzyme.setup.js"
-
-}
+  setupTestFrameworkScriptFile: "./enzyme.setup.js",
+};

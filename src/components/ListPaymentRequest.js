@@ -8,9 +8,16 @@ import useGetPaymentRequest from "../Query/useGetPaymentRequest";
 const { Text } = Typography;
 
 const ListPaymentRequest = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
   const history = useHistory();
-  const {isLoading, isError, data, refetch} = useGetPaymentRequest();
-  console.log("data >>", isLoading, data) 
+  const { isLoading, isError, data, refetch } = useGetPaymentRequest();
+  console.log("data >>", isLoading, data);
   const navigateTo = React.useCallback((id) => history.push(`/unitkerja-detailpayment/${id}`), [history]);
 
   const columns = React.useMemo(

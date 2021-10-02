@@ -49,5 +49,6 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "nan": "^2.15.0"
-  }
+  },
+  "setupFilesAfterEnv": "<rootDir>/src/tests/mocks.js"
 }
