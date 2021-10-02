@@ -6,8 +6,9 @@ on:
   push:
     branches:
       - master
-      - FormPayment
-      - accounting_beranda
+      - staging
+      - development
+      - uat
 
 jobs:
   run-linters:
