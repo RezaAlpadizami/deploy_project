@@ -14,19 +14,19 @@ const Text = Typography;
 const LoginForm = () => {
   const history = useHistory();
   const { setAuthorizedValue } = useAuthorizedContext();
-
-  const handleSignInButton = React.useCallback(() => {
-    setAuthorizedValue(true);
-    history.push("/unitkerja-beranda");
-  }, [setAuthorizedValue, history]);
+  
+  const handleSubmit = React.useCallback(() => {
+     setAuthorizedValue(true);
+     history.push("/unitkerja-beranda");
+   }, [setAuthorizedValue, history]);
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const { mutate: login } = useLogin(
+  const { mutate: login, onSuccess} = useLogin(
     { username, password },
     (result) => console.log("result >>", result),
     (error) => console.log("error >>", error)
-  );
+    );  
 
   const onFinish = React.useCallback((values) => {
     console.log("Success:", values);

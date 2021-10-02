@@ -1,4 +1,11 @@
-import { configure } from "enzyme";
-import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+import Enzyme from 'enzyme';
 
-configure({ adapter: new Adapter() })
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+module.exports = {
+
+setupTestFrameworkScriptFile: "./enzyme.setup.js"
+
+}
